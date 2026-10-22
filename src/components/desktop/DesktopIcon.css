@@ -31,3 +31,7 @@
   background: var(--xp-selection);
   text-shadow: none;
 }
+.desktop-icon:focus-visible {
+  outline: 2px dotted #fff;
+  outline-offset: -2px;
+}
