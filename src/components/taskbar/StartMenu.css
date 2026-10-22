@@ -81,3 +81,9 @@
   font-size: 1.4rem;
   line-height: 1;
 }
+
+.start-menu__divider {
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid #d6d2c2;
+}

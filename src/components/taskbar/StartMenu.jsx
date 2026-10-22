@@ -63,6 +63,14 @@ function StartMenu() {
                 </button>
               </li>
             ))}
+              <li className="start-menu__divider">
+              <a className="start-menu__item" href="#simple">
+                <span className="start-menu__icon" aria-hidden="true">
+                  📋
+                </span>
+                Simple view
+              </a>
+            </li>
           </ul>
         </div>
       )}
