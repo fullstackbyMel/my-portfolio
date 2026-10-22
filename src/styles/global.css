@@ -4,25 +4,21 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--color-text);
-  background: var(--color-bg);
+  background: var(--xp-blue-dark);
 }
 
-a {
-  color: var(--color-accent);
-}
-
-a:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-3);
+:focus-visible {
+  outline: 2px dotted #fff;
+  outline-offset: 2px;
 }

@@ -1,12 +1,17 @@
 :root {
-  --color-bg: #faf8f5;
-  --color-surface: #ffffff;
+  --xp-blue: #245edb;
+  --xp-blue-light: #3f8cf3;
+  --xp-blue-dark: #1941a5;
+  --xp-green: #3c9a2f;
+  --xp-green-dark: #2b7a22;
+  --xp-face: #ece9d8;
+  --xp-selection: #316ac5;
+
   --color-text: #1f2430;
   --color-muted: #5d6475;
   --color-accent: #6d4aff;
-  --color-accent-contrast: #ffffff;
-  --color-border: #e4e0d8;
 
+  --font-ui: Tahoma, "Segoe UI", system-ui, sans-serif;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --space-1: 0.5rem;
@@ -14,6 +19,5 @@
   --space-3: 1.5rem;
   --space-4: 2.5rem;
 
-  --radius: 10px;
-  --max-width: 960px;
+  --taskbar-height: 2.5rem;
 }

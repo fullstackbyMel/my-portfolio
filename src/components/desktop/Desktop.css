@@ -1,0 +1,23 @@
+.desktop {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 120% 55% at 25% 108%, #4a9d2f 0 60%, transparent 61%),
+    radial-gradient(ellipse 100% 45% at 90% 112%, #377f24 0 60%, transparent 61%),
+    linear-gradient(to bottom, #2f7fe0 0%, #7fb8f5 65%, #cfe6fb 100%);
+}
+
+.desktop__icons {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fill, 6rem);
+  grid-auto-columns: 6rem;
+  align-content: start;
+}
