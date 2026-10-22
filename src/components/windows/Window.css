@@ -10,11 +10,20 @@
   top: var(--y);
   width: var(--w);
   max-width: calc(100% - 1rem);
-  max-height: calc(100% - 1rem);
+  max-height: max(10rem, calc(100% - var(--y) - 0.5rem));
   display: flex;
   flex-direction: column;
   pointer-events: auto;
   outline: none;
+}
+
+.os-window[hidden] {
+  display: none;
+}
+
+.os-window .title-bar {
+  touch-action: none;
+  user-select: none;
 }
 
 .os-window .title-bar--inactive {
@@ -50,6 +59,7 @@
     left: 0.5rem;
     top: 0.5rem;
     width: calc(100% - 1rem);
+    max-height: calc(100% - 1rem);
   }
 }
 

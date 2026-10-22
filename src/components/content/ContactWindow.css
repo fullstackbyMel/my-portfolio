@@ -1,0 +1,22 @@
+.contact p {
+  margin: 0 0 var(--space-2);
+}
+
+.contact__list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem var(--space-2);
+  margin: 0;
+}
+
+.contact__list dt {
+  font-weight: 700;
+}
+
+.contact__list dd {
+  margin: 0;
+}
+
+.contact__list a {
+  color: var(--color-accent);
+}

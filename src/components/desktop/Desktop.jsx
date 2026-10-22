@@ -1,19 +1,11 @@
 import DesktopIcon from './DesktopIcon.jsx'
 import WindowLayer from '../windows/WindowLayer.jsx'
 import { desktopApps } from '../../data/apps.js'
-import { useWindowManager } from '../../hooks/useWindowManager.js'
+import { useOpenApp } from '../../hooks/useOpenApp.js'
 import './Desktop.css'
 
 function Desktop() {
-  const { openWindow } = useWindowManager()
-
-  function handleOpen(app) {
-    if (app.href) {
-      window.open(app.href, '_blank', 'noopener,noreferrer')
-      return
-    }
-    openWindow(app.id)
-  }
+  const openApp = useOpenApp()
 
   return (
     <div className="desktop">
@@ -23,7 +15,7 @@ function Desktop() {
             <DesktopIcon
               label={app.label}
               icon={app.icon}
-              onOpen={() => handleOpen(app)}
+              onOpen={() => openApp(app)}
             />
           </li>
         ))}

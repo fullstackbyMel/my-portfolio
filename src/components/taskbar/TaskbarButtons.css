@@ -1,0 +1,48 @@
+.taskbar-buttons {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+  overflow: hidden;
+}
+
+.taskbar-button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  flex: 0 1 10rem;
+  min-width: 0;
+  height: 1.9rem;
+  padding: 0 0.6rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.8rem;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: #fff;
+  background: linear-gradient(to bottom, #3c81f3, #2a5fd0);
+  border: 1px solid #1a3f9e;
+  border-radius: 4px;
+}
+
+.taskbar-button:hover {
+  filter: brightness(1.12);
+}
+
+.taskbar-button--active {
+  background: linear-gradient(to bottom, #1e4fb8, #2a62d6);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.taskbar-button--minimized {
+  opacity: 0.8;
+}
+
+.taskbar-button:focus-visible {
+  outline: 2px dotted #fff;
+  outline-offset: -3px;
+}

@@ -1,4 +1,6 @@
 import { useWindowManager } from '../../hooks/useWindowManager.js'
+import { profile } from '../../data/profile.js'
+import ExternalLink from './ExternalLink.jsx'
 import './AboutWindow.css'
 
 function AboutWindow() {
@@ -6,11 +8,8 @@ function AboutWindow() {
 
   return (
     <div className="about">
-      <h2 className="about__name">Hi, I'm Mel Liza Limbago.</h2>
-      <p className="about__headline">
-        Computer Engineering graduate and former ICT teacher building web apps
-        with Django and React.
-      </p>
+      <h2 className="about__name">Hi, I'm {profile.name}.</h2>
+      <p className="about__headline">{profile.headline}</p>
       <p>
         I'm a DOST scholar and a former public Senior High School teacher
         (ICT and Computer Systems Servicing). After completing my teaching
@@ -26,23 +25,9 @@ function AboutWindow() {
         <button type="button" onClick={() => openWindow('projects')}>
           View projects
         </button>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-          Résumé (PDF)
-        </a>
-        <a
-          href="https://github.com/backendbyMel"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://linkedin.com/in/melthecoder31"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+        <ExternalLink href={profile.resumeUrl}>Résumé (PDF)</ExternalLink>
+        <ExternalLink href={profile.githubUrl}>GitHub</ExternalLink>
+        <ExternalLink href={profile.linkedinUrl}>LinkedIn</ExternalLink>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import { windowRegistry } from './windowRegistry.js'
 import Window from './Window.jsx'
 
 function WindowLayer() {
-  const { order, activeId } = useWindowManager()
+  const { order, minimized, activeId } = useWindowManager()
 
   return (
     <div className="window-layer">
@@ -11,7 +11,7 @@ function WindowLayer() {
         const stackIndex = order.indexOf(id)
         if (stackIndex === -1) return null
 
-        const { Component, title, x, y, width } = definition
+        const { Component, props, title, x, y, width } = definition
         return (
           <Window
             key={id}
@@ -22,8 +22,9 @@ function WindowLayer() {
             width={width}
             zIndex={stackIndex + 1}
             isActive={id === activeId}
+            isMinimized={minimized.includes(id)}
           >
-            <Component />
+            <Component {...props} />
           </Window>
         )
       })}

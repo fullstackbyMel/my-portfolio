@@ -1,12 +1,13 @@
 import Clock from './Clock.jsx'
+import StartMenu from './StartMenu.jsx'
+import TaskbarButtons from './TaskbarButtons.jsx'
 import './Taskbar.css'
 
 function Taskbar() {
   return (
     <footer className="taskbar">
-      <button type="button" className="start-button">
-        start
-      </button>
+      <StartMenu />
+      <TaskbarButtons />
       <div className="taskbar__tray">
         <Clock />
       </div>
