@@ -1,0 +1,5 @@
+.privacy-note {
+  margin: var(--space-3) 0 0;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}

@@ -5,13 +5,20 @@ import ExternalLink from '../components/content/ExternalLink.jsx'
 import ProjectSheet from '../components/content/ProjectSheet.jsx'
 import SkillsWindow from '../components/content/SkillsWindow.jsx'
 import './SimpleView.css'
+import PrivacyNote from '../components/content/PrivacyNote.jsx'
 
 function SimpleView() {
   return (
     <div className="simple">
       <header className="simple__header">
         <p className="simple__switch">
-          <a href="#desktop">Switch to desktop view</a>
+          <a
+            href="#desktop"
+            data-umami-event="switch-view"
+            data-umami-event-view="desktop"
+          >
+            Switch to desktop view
+          </a>
         </p>
         <h1 className="simple__name">{profile.name}</h1>
         <p className="simple__headline">{profile.headline}</p>
@@ -19,7 +26,9 @@ function SimpleView() {
           <ExternalLink href={profile.resumeUrl}>Résumé (PDF)</ExternalLink>
           <ExternalLink href={profile.githubUrl}>GitHub</ExternalLink>
           <ExternalLink href={profile.linkedinUrl}>LinkedIn</ExternalLink>
-          <a href={`mailto:${profile.email}`}>Email</a>
+          <a href={`mailto:${profile.email}`} data-umami-event="email-click">
+            Email
+          </a>  
         </nav>
       </header>
 
@@ -49,6 +58,10 @@ function SimpleView() {
           <ContactWindow />
         </section>
       </main>
+
+      <footer className="simple__footer">
+        <PrivacyNote />
+      </footer>
     </div>
   )
 }

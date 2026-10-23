@@ -1,4 +1,7 @@
-.contact p {
+/* .contact p {
+  margin: 0 0 var(--space-2);
+} */
+.contact__intro {
   margin: 0 0 var(--space-2);
 }
 

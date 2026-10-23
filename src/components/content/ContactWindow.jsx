@@ -1,15 +1,16 @@
 import { profile } from '../../data/profile.js'
 import ExternalLink from './ExternalLink.jsx'
 import './ContactWindow.css'
+import PrivacyNote from './PrivacyNote.jsx'
 
 function ContactWindow() {
   return (
     <div className="contact">
-      <p>Open to remote Software Developer / Engineer roles. Feel free to get in touch.</p>
+      <p className="contact__intro">Open to remote Software Developer / Engineer roles. Feel free to get in touch.</p>
       <dl className="contact__list">
         <dt>Email</dt>
         <dd>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={`mailto:${profile.email}`} data-umami-event="email-click">{profile.email}</a>
         </dd>
         <dt>LinkedIn</dt>
         <dd>
@@ -24,6 +25,7 @@ function ContactWindow() {
           <ExternalLink href={profile.resumeUrl}>Download PDF</ExternalLink>
         </dd>
       </dl>
+      <PrivacyNote />
     </div>
   )
 }

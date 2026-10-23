@@ -20,7 +20,13 @@ function AboutWindow() {
         <ExternalLink href={profile.resumeUrl}>Résumé (PDF)</ExternalLink>
         <ExternalLink href={profile.githubUrl}>GitHub</ExternalLink>
         <ExternalLink href={profile.linkedinUrl}>LinkedIn</ExternalLink>
-        <a href="#simple">Simple view</a>
+        <a
+          href="#simple"
+          data-umami-event="switch-view"
+          data-umami-event-view="simple"
+        >
+          Simple view
+        </a>
       </div>
     </div>
   )

@@ -64,7 +64,12 @@ function StartMenu() {
               </li>
             ))}
               <li className="start-menu__divider">
-              <a className="start-menu__item" href="#simple">
+              <a
+                className="start-menu__item"
+                href="#simple"
+                data-umami-event="switch-view"
+                data-umami-event-view="simple"
+              >
                 <span className="start-menu__icon" aria-hidden="true">
                   📋
                 </span>

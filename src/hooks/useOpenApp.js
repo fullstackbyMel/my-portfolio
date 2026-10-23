@@ -1,3 +1,4 @@
+import { trackEvent } from '../analytics.js'
 import { useWindowManager } from './useWindowManager.js'
 
 export function useOpenApp() {
@@ -5,6 +6,7 @@ export function useOpenApp() {
 
   return function openApp(app) {
     if (app.href) {
+      trackEvent('outbound-click', { url: app.href })
       window.open(app.href, '_blank', 'noopener,noreferrer')
       return
     }

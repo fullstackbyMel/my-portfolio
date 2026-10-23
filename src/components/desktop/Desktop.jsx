@@ -9,7 +9,7 @@ function Desktop() {
 
   return (
     <div className="desktop">
-      <ul className="desktop__icons">
+      <ul className="desktop__icons" aria-label="Desktop">
         {desktopApps.map((app) => (
           <li key={app.id}>
             <DesktopIcon
