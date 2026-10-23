@@ -7,6 +7,7 @@ export default defineConfig({
   build: {
     cssMinify: false,
   },
+  base: '/my-portfolio/',
   test: {
     environment: 'jsdom',
     setupFiles: ['./tests/setup.js'],
