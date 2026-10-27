@@ -9,6 +9,8 @@ window.matchMedia = (query) => ({
   removeEventListener: () => {},
 })
 
+Element.prototype.scrollIntoView = function scrollIntoView() {}
+
 afterEach(() => {
   cleanup()
   window.__isMobile = false

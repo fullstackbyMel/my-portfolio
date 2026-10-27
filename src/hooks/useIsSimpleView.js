@@ -6,9 +6,9 @@ function subscribe(onChange) {
 }
 
 function getSnapshot() {
-  return window.location.hash
+  return /^#simple(\/|$)/.test(window.location.hash)
 }
 
 export function useIsSimpleView() {
-  return useSyncExternalStore(subscribe, getSnapshot) === '#simple'
+  return useSyncExternalStore(subscribe, getSnapshot)
 }

@@ -3,7 +3,8 @@ import ExternalLink from './ExternalLink.jsx'
 import './ContactWindow.css'
 import PrivacyNote from './PrivacyNote.jsx'
 
-function ContactWindow() {
+// function ContactWindow() {
+function ContactWindow({ showPrivacyNote = true }) {
   return (
     <div className="contact">
       <p className="contact__intro">Open to remote Software Developer / Engineer roles. Feel free to get in touch.</p>
@@ -25,7 +26,8 @@ function ContactWindow() {
           <ExternalLink href={profile.resumeUrl}>Download PDF</ExternalLink>
         </dd>
       </dl>
-      <PrivacyNote />
+      {/* <PrivacyNote /> */}
+      {showPrivacyNote && <PrivacyNote />}
     </div>
   )
 }

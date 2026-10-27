@@ -130,11 +130,64 @@ describe('simple view', () => {
     const user = userEvent.setup()
     render(<App />)
     await user.click(within(screen.getByRole('dialog')).getByRole('link', { name: 'Simple view' }))
-    expect(await screen.findByRole('link', { name: 'Switch to desktop view' })).toBeInTheDocument()
-    await user.click(screen.getByRole('link', { name: 'Switch to desktop view' }))
+    expect(await screen.findByRole('link', { name: 'Desktop view' })).toBeInTheDocument()
+    await user.click(screen.getByRole('link', { name: 'Desktop view' }))
     expect(await screen.findByRole('dialog', { name: 'About Me.txt' })).toBeInTheDocument()
   })
 
+    it('has a navigation bar with a link to every section', () => {
+    window.location.hash = '#simple'
+    render(<App />)
+    const nav = screen.getByRole('navigation', { name: 'Sections' })
+    const links = within(nav).getAllByRole('link')
+    expect(links.map((link) => link.textContent)).toEqual(['About', 'Projects', 'Skills', 'Contact'])
+    expect(links.map((link) => link.getAttribute('href'))).toEqual([
+      '#simple/about',
+      '#simple/projects',
+      '#simple/skills',
+      '#simple/contact',
+    ])
+    expect(screen.getByRole('link', { name: 'Desktop view' })).toBeInTheDocument()
+  })
+
+  it('stays in the simple view when a section link is used', async () => {
+    window.location.hash = '#simple'
+    const user = userEvent.setup()
+    render(<App />)
+    const nav = screen.getByRole('navigation', { name: 'Sections' })
+    await user.click(within(nav).getByRole('link', { name: 'Projects' }))
+    expect(window.location.hash).toBe('#simple/projects')
+    expect(screen.getByRole('heading', { level: 1, name: 'Mel Liza Limbago' })).toBeInTheDocument()
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
+  it('scrolls to the section named in the address', () => {
+    window.location.hash = '#simple/skills'
+    const scroll = vi.spyOn(Element.prototype, 'scrollIntoView')
+    render(<App />)
+    expect(scroll).toHaveBeenCalledTimes(1)
+    expect(scroll.mock.contexts[0].id).toBe('simple/skills')
+  })
+
+  it('does not treat similar-looking addresses as the simple view', () => {
+    window.location.hash = '#simplest'
+    render(<App />)
+    expect(screen.getByRole('dialog', { name: 'About Me.txt' })).toBeInTheDocument()
+  })
+
+  it('offers a skip link and one main landmark', () => {
+    window.location.hash = '#simple'
+    render(<App />)
+    expect(screen.getByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#simple/content')
+    expect(screen.getAllByRole('main')).toHaveLength(1)
+  })
+
+  it('shows the privacy note exactly once', () => {
+    window.location.hash = '#simple'
+    render(<App />)
+    expect(screen.getAllByText(/uses Umami analytics/)).toHaveLength(1)
+  })
+  
   it('never shows a live demo link for projects without one', () => {
     window.location.hash = '#simple'
     render(<App />)
