@@ -62,6 +62,23 @@ describe('desktop', () => {
     expect(screen.getByRole('dialog', { name: 'About Me.txt' })).toBeVisible()
   })
 
+  it('gives screen readers named landmarks', () => {
+    render(<App />)
+    expect(screen.getByRole('main')).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Taskbar' })).toBeInTheDocument()
+  })
+
+  it('returns keyboard focus to the icon that opened the last window', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.keyboard('{Escape}')
+    const icon = desktopIcon(/Skills\.exe/)
+    await user.click(icon)
+    await user.keyboard('{Escape}')
+    expect(openDialogs()).toHaveLength(0)
+    expect(icon).toHaveFocus()
+  })
+
   it('opens the Start menu and closes it with Escape', async () => {
     const user = userEvent.setup()
     render(<App />)
@@ -122,6 +139,13 @@ describe('simple view', () => {
     window.location.hash = '#simple'
     render(<App />)
     expect(screen.queryByRole('link', { name: 'Live demo' })).not.toBeInTheDocument()
+  })
+  it('keeps a correct heading outline: project names sit under "Projects"', () => {
+    window.location.hash = '#simple'
+    render(<App />)
+    expect(screen.getByRole('heading', { level: 2, name: 'Projects' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 3, name: 'Sari-Sari Store POS' })).toBeInTheDocument()
+    expect(screen.getAllByRole('heading', { level: 4, name: 'The problem' })).toHaveLength(2)
   })
 })
 

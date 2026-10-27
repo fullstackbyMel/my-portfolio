@@ -43,14 +43,14 @@ function SimpleView() {
           <h2 className="simple__heading">Projects</h2>
           {projects.map((project) => (
             <div key={project.id} className="simple__project">
-              <ProjectSheet projectId={project.id} />
+              <ProjectSheet projectId={project.id} headingLevel={3} />
             </div>
           ))}
         </section>
 
         <section className="simple__section">
           <h2 className="simple__heading">Skills</h2>
-          <SkillsWindow />
+          <SkillsWindow headingLevel={3} />
         </section>
 
         <section className="simple__section">

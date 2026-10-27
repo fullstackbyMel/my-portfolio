@@ -14,6 +14,20 @@ function Window({ id, title, x, y, width, zIndex, isActive, isMinimized, childre
   const dragHandlers = useDrag({ elementRef: windowRef, position, setPosition })
 
   useEffect(() => {
+    const opener = document.activeElement
+    return () => {
+      if (opener instanceof HTMLElement && opener.isConnected) opener.focus()
+    }
+  }, [])
+
+  useEffect(() => {
+    const element = windowRef.current
+    if (isActive && element && !element.contains(document.activeElement)) {
+      element.focus()
+    }
+  }, [isActive])
+  
+  useEffect(() => {
     const element = windowRef.current
     if (isActive && element && !element.contains(document.activeElement)) {
       element.focus()

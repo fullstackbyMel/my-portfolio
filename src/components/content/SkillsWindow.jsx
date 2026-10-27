@@ -1,12 +1,14 @@
 import { skillGroups } from '../../data/skills.js'
 import './SkillsWindow.css'
 
-function SkillsWindow() {
+function SkillsWindow({ headingLevel = 2 }) {
+  const Heading = `h${headingLevel}`
+
   return (
     <div className="skills">
       {skillGroups.map((group) => (
         <section key={group.id} className="skills__group">
-          <h2 className="skills__title">{group.title}</h2>
+          <Heading className="skills__title">{group.title}</Heading>
           <ul className="skills__list">
             {group.items.map((item) => (
               <li key={item.name}>

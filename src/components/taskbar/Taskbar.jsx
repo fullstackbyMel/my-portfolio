@@ -5,13 +5,13 @@ import './Taskbar.css'
 
 function Taskbar() {
   return (
-    <footer className="taskbar">
+    <nav className="taskbar" aria-label="Taskbar">
       <StartMenu />
       <TaskbarButtons />
       <div className="taskbar__tray">
         <Clock />
       </div>
-    </footer>
+    </nav>
   )
 }
 

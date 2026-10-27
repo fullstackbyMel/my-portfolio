@@ -63,6 +63,10 @@
   }
 } */
 
+.os-window .title-bar-controls button {
+  margin-left: 4px;
+}
+
 .os-window .title-bar-controls button:focus-visible {
   outline: 2px dotted #fff;
   outline-offset: 1px;

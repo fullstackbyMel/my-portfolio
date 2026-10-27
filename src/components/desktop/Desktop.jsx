@@ -8,7 +8,7 @@ function Desktop() {
   const openApp = useOpenApp()
 
   return (
-    <div className="desktop">
+    <main className="desktop">
       <ul className="desktop__icons" aria-label="Desktop">
         {desktopApps.map((app) => (
           <li key={app.id}>
@@ -21,7 +21,7 @@ function Desktop() {
         ))}
       </ul>
       <WindowLayer />
-    </div>
+    </main>
   )
 }
 
