@@ -19,7 +19,7 @@ function ContactWindow({ showPrivacyNote = true }) {
         </dd>
         <dt>GitHub</dt>
         <dd>
-          <ExternalLink href={profile.githubUrl}>backendbyMel</ExternalLink>
+          <ExternalLink href={profile.githubUrl}>Full Stack</ExternalLink>
         </dd>
         <dt>Résumé</dt>
         <dd>
